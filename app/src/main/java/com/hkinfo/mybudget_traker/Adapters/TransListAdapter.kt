@@ -3,6 +3,7 @@ package com.hkinfo.mybudget_traker.Adapters
 import android.annotation.SuppressLint
 import android.content.Context
 import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.view.LayoutInflater
 import android.view.MenuItem
 import android.view.View
@@ -47,15 +48,16 @@ class TransListAdapter(update: (TransModel) -> Unit,delete: (Int)-> Unit) :
                 txtCategory.text = category
                 txtAmount.text = amt.toString()
 
-                if (isexpense == 0){
-                    txtAmount.setTextColor(Color.GREEN)
-                    imgTrans.setImageResource(R.drawable.green)
-
-                }else{
-                    txtAmount.setTextColor(Color.RED)
-                    imgTrans.setImageResource(R.drawable.red)
-
+                if (isexpense == 0) {
+                    txtAmount.setTextColor(Color.parseColor("#479C5E"))
+                    round.setImageResource(R.drawable.arrow_up)
+                    roundBack.setImageResource(R.drawable.income)
+                } else {
+                    roundBack.setImageResource(R.drawable.expense)
+                    round.setImageResource(R.drawable.arrow_down)
+                    txtAmount.setTextColor(Color.parseColor("#DD4545"))
                 }
+
             }
         }
         holder.itemView.setOnLongClickListener(object : OnLongClickListener{
@@ -75,29 +77,17 @@ class TransListAdapter(update: (TransModel) -> Unit,delete: (Int)-> Unit) :
                         }
                         return true
                     }
-
                 })
                 popupMenu.show()
-
-                return false
+                return true
             }
-
         })
     }
-
     fun setTrans(list: ArrayList<TransModel>) {
         this.list = list
     }
-
     fun updateData(transaction: ArrayList<TransModel>) {
         this.list = transaction
         notifyDataSetChanged()
     }
-
-    fun update(transaction: ArrayList<TransModel>) {
-        this.list = transaction
-        notifyDataSetChanged()
-    }
-
-
 }

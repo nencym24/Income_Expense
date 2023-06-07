@@ -5,12 +5,12 @@
         android:title="Home"
         android:icon="@drawable/home"/>
 
-    <item android:id="@+id/budget"
-        android:title="Budget"
-        android:icon="@drawable/budget"/>
+    <item android:id="@+id/add"
+        android:title="Add"
+        android:icon="@drawable/add"/>
 
-    <item android:id="@+id/stats"
-        android:title="Stats"
+    <item android:id="@+id/status"
+        android:title="Status"
         android:icon="@drawable/stat"/>
 
 </menu>

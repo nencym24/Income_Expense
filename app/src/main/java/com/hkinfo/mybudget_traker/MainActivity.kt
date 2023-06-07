@@ -1,13 +1,14 @@
 package com.hkinfo.mybudget_traker
 
+import android.graphics.Color
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.MenuItem
 import androidx.fragment.app.Fragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
-import com.hkinfo.mybudget_traker.Fragments.BudgetFragment
+import com.hkinfo.mybudget_traker.Fragments.AddDatatFragment
 import com.hkinfo.mybudget_traker.Fragments.HomeFragment
-import com.hkinfo.mybudget_traker.Fragments.StatsFragment
+import com.hkinfo.mybudget_traker.Fragments.StatusFragment
 import com.hkinfo.mybudget_traker.databinding.ActivityMainBinding
 
 lateinit var binding: ActivityMainBinding
@@ -18,8 +19,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        var Type = arrayOf("home","Budget","Stats")
-        var Fragments = arrayOf(HomeFragment(),BudgetFragment(),StatsFragment())
+        var Type = arrayOf("home","Add","Status")
+        var Fragments = arrayOf(HomeFragment(),AddDatatFragment(),StatusFragment())
         loadFragment(HomeFragment())
         binding.bottomNav.setOnNavigationItemSelectedListener(object : BottomNavigationView.OnNavigationItemSelectedListener{
             override fun onNavigationItemSelected(item: MenuItem): Boolean {
@@ -30,13 +31,13 @@ class MainActivity : AppCompatActivity() {
                     }
                 }
                 when(item.itemId) {
-                    R.id.budget->{
-                        loadFragment(BudgetFragment())
+                    R.id.add->{
+                        loadFragment(AddDatatFragment())
                     }
                 }
                 when(item.itemId) {
-                    R.id.stats->{
-                        loadFragment(StatsFragment())
+                    R.id.status->{
+                        loadFragment(StatusFragment())
                     }
                 }
                 return true
