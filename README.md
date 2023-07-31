@@ -1,4 +1,4 @@
-# Income_Expense
+# Income Expense Manager
 
 <img 
   width="33%"
@@ -39,3 +39,5 @@
 <img 
   width="33%"
   src="S12.png"/>
+
+credit by Nency Mavani
